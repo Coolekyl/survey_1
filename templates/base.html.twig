@@ -8,26 +8,21 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<nav>
-    <div class="container">
-    <ul class="nav justify-content-end transparent">
-
-        <a class="navbar-brand" href="#">
-            <img src="../src/media/logo/dif_logo-format1.jpg" style="display: block;" height="156" width="133">
-        </a>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ path('default') }}">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ path('default_enq') }}">Enquete</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Inloggen</a>
-        </li>
-    </ul>
-</nav>
-        </div>
-
+<div class="container">
+    <nav>
+        <ul class="nav justify-content-end transparent">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('default') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('default_enq') }}">Enquete</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Inloggen</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
 </body>
