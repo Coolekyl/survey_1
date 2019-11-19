@@ -5,8 +5,17 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('CSS/base.html.css') }}">
+
     </head>
     <body>
+    <div id="headercontainer">
+        <div id="logoimg"><img src="{{ asset('img/logoimg.png') }}" align="right"></div>
+        <div id="logotext">Dutch<br> <b>Innovation<br> Factory</b></div>
+        <div id="button1" class="headerbtn"><a href="#">Home</a></div>
+        <div id="button2" class="headerbtn"><a href="#">Over de DIF</a></div>
+        <div id="button3" class="headerbtn"><a href="#">Vragenlijst</a></div>
+    </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

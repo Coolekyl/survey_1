@@ -1,0 +1,51 @@
+#headercontainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto 6% 8% 8% auto;
+}
+
+#logoimg {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#logoimg img {
+    margin-right: 5px;
+}
+
+#logotext {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#button1 {
+    grid-column-start: 6;
+    grid-column-end: 7;
+}
+
+#button2 {
+    grid-column-start: 7;
+    grid-column-end: 8;
+}
+
+#button3 {
+    grid-column-start: 8;
+    grid-column-end: 9;
+}
+
+.headerbtn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.headerbtn a {
+    color: black;
+    text-decoration: none;
+}
+
+.headerbtn a:hover {
+    color: rgba(20, 20, 20, 0.89);
+    text-decoration: underline;
+}
