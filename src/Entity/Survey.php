@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,21 +19,45 @@ class Survey
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $route;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Qeustion", mappedBy="survery", orphanRemoval=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $qeustions;
+    private $description;
 
-    public function __construct()
-    {
-        $this->qeustions = new ArrayCollection();
-    }
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getRoute(): ?string
+    {
+        return $this->route;
+    }
+
+    public function setRoute(string $route): self
+    {
+        $this->route = $route;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
     }
 
     public function getName(): ?string
@@ -50,34 +72,7 @@ class Survey
         return $this;
     }
 
-    /**
-     * @return Collection|Qeustion[]
-     */
-    public function getQeustions(): Collection
-    {
-        return $this->qeustions;
-    }
-
-    public function addQeustion(Qeustion $qeustion): self
-    {
-        if (!$this->qeustions->contains($qeustion)) {
-            $this->qeustions[] = $qeustion;
-            $qeustion->setSurvery($this);
-        }
-
-        return $this;
-    }
-
-    public function removeQeustion(Qeustion $qeustion): self
-    {
-        if ($this->qeustions->contains($qeustion)) {
-            $this->qeustions->removeElement($qeustion);
-            // set the owning side to null (unless already changed)
-            if ($qeustion->getSurvery() === $this) {
-                $qeustion->setSurvery(null);
-            }
-        }
-
-        return $this;
+    public function __ToString(){
+        return (string) $this->getName();
     }
 }

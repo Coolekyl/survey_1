@@ -17,57 +17,57 @@ class Answer
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text")
      */
-    private $answer_text;
+    private $description;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
      */
-    private $value_from;
+    private $fos_user_id;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
      */
-    private $value_till;
+    private $Choice_id;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getAnswerText(): ?string
+    public function getDescription(): ?string
     {
-        return $this->answer_text;
+        return $this->description;
     }
 
-    public function setAnswerText(?string $answer_text): self
+    public function setDescription(string $description): self
     {
-        $this->answer_text = $answer_text;
+        $this->description = $description;
 
         return $this;
     }
 
-    public function getValueFrom(): ?int
+    public function getFosUserId(): ?User
     {
-        return $this->value_from;
+        return $this->fos_user_id;
     }
 
-    public function setValueFrom(?int $value_from): self
+    public function setFosUserId(?User $fos_user_id): self
     {
-        $this->value_from = $value_from;
+        $this->fos_user_id = $fos_user_id;
 
         return $this;
     }
 
-    public function getValueTill(): ?int
+    public function getChoiceId(): ?Choice
     {
-        return $this->value_till;
+        return $this->Choice_id;
     }
 
-    public function setValueTill(?int $value_till): self
+    public function setChoiceId(?Choice $Choice_id): self
     {
-        $this->value_till = $value_till;
+        $this->Choice_id = $Choice_id;
 
         return $this;
     }

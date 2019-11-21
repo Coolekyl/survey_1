@@ -1,54 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('CSS/base.html.css') }}">
-</head>
-<body>
-<div id="headercontainer">
-    <div id="logoimg"><img src="{{ asset('img/logoimg.png') }}" align="right"></div>
-    <div id="logotext">Dutch<br> <b>Innovation<br> Factory</b></div>
-    <div id="button1" class="headerbtn"><a href="#">Home</a></div>
-    <div id="button2" class="headerbtn"><a href="#">Over de DIF</a></div>
-    <div id="button3" class="headerbtn"><a href="#">Vragenlijst</a></div>
-</div>
-{% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
-<footer>
-    <div id="footercontainer">
-        <div id="footersubcontainer1">
-            <div>
-                <img src="{{ asset('img/logoimg.png') }}">
-                <div style="display: inline">Dutch<br> <b>Innovation<br> Factory</b></div>
-            </div>
-            <br>
-            <div>
-                Lorem ipsum dolor sit amet,consectetur <br>
-                adipiscing elit. Mus facilisis vel ultrices vestibulum <br>
-                vel scelerisque donec proin magna. <br>
-            </div>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="language" content="NL">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% include 'components/nav.html.twig' with {navType:navType} %}
+        <div class="content" role="main">
+            {% block body %}{% endblock %}
         </div>
-        <div id="footersubcontainer2">
-            <h5>links</h5>
-            <ul>
-                <li>home</li>
-                <li>over ons</li>
-                <li>contact</li>
-            </ul>
-        </div>
-        <div id="footersubcontainer3">
-            <h5>adres</h5>
-            <ul>
-                <li>www.mborijnland.nl</li>
-                <li>082 222 1777</li>
-                <li>van doornenplantsoen 11</li>
-                <li>2722 ZA Zouetermeer</li>
-            </ul>
-        </div>
-    </div>
-</footer>
-</body>
+        {% include 'components/footer.html.twig' %}
+        {% block javascripts %}{% endblock %}
+        {# determine navigation type #}
+        {% if navType is defined %}
+            {% if navType == "header"%}
+                <script type="module" src="{{ asset('scripts/navcolour.js') }}"></script>
+            {% endif %}
+        {% endif %}
+        <script type="module" src="{{ asset('scripts/navresponsive.js') }}"></script>
+    </body>
 </html>
